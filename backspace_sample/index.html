@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Text Area backspace</title>
+  <script>
+    function keydown(event) {
+      const textarea = document.getElementById("textarea");
+      if (event.key === 'Enter') {
+        textarea.style.backgroundColor = 'lightblue';
+        textarea.value = '';
+        event.preventDefault();
+      } else if (event.key === 'Backspace') {
+        if (textarea.value === '') {
+          textarea.style.backgroundColor = 'pink';
+        }
+      } else {
+        textarea.style.backgroundColor = 'white';
+      }
+    }
+  </script>
+</head>
+<body>
+  <textarea id="textarea" placeholder="Placeholder" onkeydown="keydown(event)"></textarea>
+</body>
+</html>
