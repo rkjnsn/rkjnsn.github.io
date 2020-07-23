@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Margin Sample</title>
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+      #outer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        display: grid;
+        background-color: gray;
+      }
+
+      #inner {
+        margin: auto;
+        background-color: lightgreen;
+        box-sizing: border-box;
+        border: 1px solid green;
+      }
+    </style>
+    <script>
+      function resize() {
+        const outer = document.getElementById("outer");
+        const inner = document.getElementById("inner");
+        inner.style.width = outer.clientWidth + 'px';
+        inner.style.height = outer.clientHeight + 'px';
+      }
+      function toggleFullscreen() {
+        if (document.fullscreenElement) {
+          document.exitFullscreen();
+        } else {
+          document.documentElement.requestFullscreen();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="outer">
+      <div id="inner" style="width: 200px; height: 200px;">
+        <button onclick="resize()">Resize to client</button>
+        <button onclick="toggleFullscreen()">Toggle fullscreen</button>
+      </div>
+    </div>
+  </body>
+</html>
